@@ -16,8 +16,8 @@ CAT_COLS = [
 ]
 
 def load_data(path):
-    df = pd.read_csv(path)
-    return df
+    return pd.read_csv(path, delimiter=",", error_bad_lines=False, encoding="utf-8")
+
 
 def split_data(df, target="Default", test_size=0.2, random_state=42):
     splitter = StratifiedShuffleSplit(n_splits=1, test_size=test_size, random_state=random_state)

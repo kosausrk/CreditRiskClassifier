@@ -1,4 +1,4 @@
-[IN PROGRESS] 
+**[IN PROGRESS] **
 
 # Credit Risk Classifier
 

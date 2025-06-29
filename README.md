@@ -1,3 +1,5 @@
+[IN PROGRESS] 
+
 # Credit Risk Classifier
 
 A machine learning application that predicts the probability of loan default based on customer financial data. Designed for financial institutions like JPMorgan and Capital One to automate risk underwriting with interpretable insights.

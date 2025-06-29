@@ -13,7 +13,9 @@ preprocessor = build_preprocessor()
 X_train = preprocessor.fit_transform(train)
 X_test = preprocessor.transform(test)
 
-y_train, y_test = train["default"], test["default"]
+y_train, y_test = train["Default"], test["Default"]
+
+
 
 model = train_xgb_cv(X_train, y_train)
 save_model(model)

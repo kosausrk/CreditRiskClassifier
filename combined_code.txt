@@ -1,0 +1,182 @@
+-e 
+# === File: ./app/streamlit.py ===
+
+# app/streamlit_app.py
+import streamlit as st
+import pandas as pd
+import joblib, shap
+
+model = joblib.load("../models/model.pkl")
+explainer = shap.TreeExplainer(model)
+
+st.title("Credit Risk Classifier")
+input_data = {col: st.number_input(col) for col in ["age","income","loan_amount","credit_score"]}
+df = pd.DataFrame([input_data])
+pred = model.predict_proba(df)[0,1]
+st.write(f"🔍 Predicted default probability: **{pred:.2%}**")
+
+if st.checkbox("Show SHAP explanation"):
+    shap_values = explainer.shap_values(df)
+    st_shap = st.pyplot()
+    shap.force_plot(explainer.expected_value, shap_values[0,:], df.iloc[0,:], matplotlib=True, show=False)
+    st_shap.pyplot()
+-e 
+# === File: ./run_pipeline.py ===
+
+# run_pipeline.py
+from src.data_prep import load_data, split_data, build_preprocessor
+from src.train_model import train_baseline, train_xgb_cv, save_model
+from src.evaluate import evaluate_model
+from src.shap_analysis import compute_shap, plot_summary
+
+df = load_data("data/raw/german_credit.csv")
+train, test = split_data(df)
+preprocessor = build_preprocessor()
+
+X_train = preprocessor.fit_transform(train)
+X_test = preprocessor.transform(test)
+
+y_train, y_test = train["default"], test["default"]
+
+model = train_xgb_cv(X_train, y_train)
+save_model(model)
+
+evaluate_model(model, X_test, y_test)
+
+explainer, shap_values = compute_shap(model, X_train)
+plot_summary(shap_values, X_train)
+-e 
+# === File: ./src/train_model.py ===
+
+# src/train_model.py
+import joblib
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+import xgboost as xgb
+from sklearn.model_selection import GridSearchCV
+
+def train_baseline(X, y):
+    lr = LogisticRegression(max_iter=1000)
+    lr.fit(X, y)
+    return lr
+
+def train_xgb_cv(X, y):
+    param_grid = {
+        "n_estimators": [100, 200],
+        "max_depth": [3, 5],
+        "learning_rate": [0.01, 0.1]
+    }
+    xgb_clf = xgb.XGBClassifier(use_label_encoder=False, eval_metric="logloss")
+    grid = GridSearchCV(xgb_clf, param_grid, cv=5, scoring="roc_auc", n_jobs=-1)
+    grid.fit(X, y)
+    return grid.best_estimator_
+
+def save_model(model, path="models/model.pkl"):
+    joblib.dump(model, path)
+-e 
+# === File: ./src/data_prep.py ===
+
+# src/data_prep.py
+import pandas as pd
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+
+NUM_COLS = ["age","loan_amount","income","credit_score"]
+CAT_COLS = ["purpose","employment_status"]
+
+def load_data(path):
+    return pd.read_csv(path)
+
+def split_data(df, target="default", test_size=0.2, random_state=42):
+    splitter = StratifiedShuffleSplit(n_splits=1, test_size=test_size, random_state=random_state)
+    for train_idx, test_idx in splitter.split(df, df[target]):
+        return df.loc[train_idx], df.loc[test_idx]
+
+def build_preprocessor():
+    num_pipe = Pipeline([
+        ("impute", SimpleImputer(strategy="median")),
+        ("scale", StandardScaler())
+    ])
+    cat_pipe = Pipeline([
+        ("impute", SimpleImputer(strategy="constant", fill_value="MISSING")),
+        ("ohe", OneHotEncoder(handle_unknown="ignore"))
+    ])
+    return ColumnTransformer([
+        ("num", num_pipe, NUM_COLS),
+        ("cat", cat_pipe, CAT_COLS)
+    ])
+-e 
+# === File: ./src/evaluate.py ===
+
+# src/evaluate.py
+from sklearn.metrics import roc_auc_score, classification_report, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def evaluate_model(model, X_test, y_test):
+    y_pred = model.predict(X_test)
+    y_proba = model.predict_proba(X_test)[:,1]
+    print("ROC AUC:", roc_auc_score(y_test, y_proba))
+    print(classification_report(y_test, y_pred))
+    cm = confusion_matrix(y_test, y_pred)
+    sns.heatmap(cm, annot=True, fmt="d")
+    plt.show()
+
+-e 
+# === File: ./src/shap_analysis.py ===
+
+# src/shap_analysis.py
+import shap
+import matplotlib.pyplot as plt
+
+def compute_shap(model, X):
+    explainer = shap.TreeExplainer(model)
+    shap_values = explainer.shap_values(X)
+    return explainer, shap_values
+
+def plot_summary(shap_values, X):
+    shap.summary_plot(shap_values, X)
+
+
+
+-e 
+# === File: ./src/main.py ===
+
+#scaffold 
+# src/data_prep.py
+
+
+import pandas as pd
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+
+NUM_COLS = ["age","loan_amount","income","credit_score"]
+CAT_COLS = ["purpose","employment_status"]
+
+def load_data(path):
+    return pd.read_csv(path)
+
+def split_data(df, target="default", test_size=0.2, random_state=42):
+    splitter = StratifiedShuffleSplit(n_splits=1, test_size=test_size, random_state=random_state)
+    for train_idx, test_idx in splitter.split(df, df[target]):
+        return df.loc[train_idx], df.loc[test_idx]
+
+def build_preprocessor():
+    num_pipe = Pipeline([
+        ("impute", SimpleImputer(strategy="median")),
+        ("scale", StandardScaler())
+    ])
+    cat_pipe = Pipeline([
+        ("impute", SimpleImputer(strategy="constant", fill_value="MISSING")),
+        ("ohe", OneHotEncoder(handle_unknown="ignore"))
+    ])
+    return ColumnTransformer([
+        ("num", num_pipe, NUM_COLS),
+        ("cat", cat_pipe, CAT_COLS)
+    ])

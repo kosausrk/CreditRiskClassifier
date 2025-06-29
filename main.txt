@@ -1,0 +1,126 @@
+TEXT UML 
+
++----------------+
+| DataLoader     |
++----------------+
+| +path: str     |
++----------------+
+| +load_raw()    |
+| +load_processed() |
++----------------+
+
++----------------------+
+| DataPreprocessor     |
++----------------------+
+| +num_cols, cat_cols  |
++----------------------+
+| +fit_transform(df)   |
+| +transform(df)       |
++----------------------+
+
++------------------+
+| ModelTrainer     |
++------------------+
+| +model: sklearn  |
++------------------+
+| +train(X, y)     |
+| +cross_validate()|
++------------------+
+
++------------------+
+| Evaluator        |
++------------------+
+| +model           |
++------------------+
+| +evaluate(X, y)  |
++------------------+
+
++------------------+
+| ShapInterpreter  |
++------------------+
+| +model           |
++------------------+
+| +compute_shap(X) |
+| +plot_summary()  |
++------------------+
+
++----------------------+
+| StreamlitApp         |
++----------------------+
+| +model, explainer    |
++----------------------+
+| +run_app()           |
++----------------------+
+
+
+
+1. Data Understanding
+   ├─ Gather example datasets (e.g., LendingClub, Kaggle credit datasets)
+   ├─ Explore feature types: income, credit score, loan amount, etc.
+   └─ Identify target variable (loan default = 0/1)
+
+2. Exploratory Data Analysis (EDA)
+   ├─ Correlation analysis, outlier detection
+   ├─ Missing value imputation
+   └─ Visualizations: boxplots, heatmaps, histograms
+
+3. Data Preprocessing
+   ├─ Encoding categorical variables
+   ├─ Normalization/Standardization
+   └─ Train-test split (stratified)
+
+4. Model Development
+   ├─ Baseline: Logistic Regression
+   ├─ Advanced: Random Forest, XGBoost
+   ├─ Cross-validation (e.g., StratifiedKFold)
+   └─ Hyperparameter tuning (GridSearchCV / Optuna)
+
+5. Model Evaluation
+   ├─ Metrics: ROC AUC, F1, Precision-Recall
+   └─ Confusion matrix visualizations
+
+6. Interpretability
+   ├─ Feature importance (XGBoost built-in)
+   └─ SHAP plots (force, beeswarm, summary)
+
+7. Streamlit App
+   ├─ Input form for user financial data
+   ├─ Risk prediction output
+   └─ Display SHAP explanations
+
+8. Deployment (Optional)
+   └─ Streamlit Cloud / Dockerize for local hosting
+
+
+
+
+File Structure
+credit-risk-classifier/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   └── 02_model_dev.ipynb
+│
+├── src/
+│   ├── data_prep.py
+│   ├── train_model.py
+│   ├── evaluate.py
+│   └── shap_analysis.py
+│
+├── app/
+│   └── streamlit_app.py
+│
+├── models/
+│   └── xgb_credit_model.pkl
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+
+
+
+

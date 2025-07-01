@@ -22,7 +22,7 @@ A machine learning application that predicts the probability of loan default bas
 - Matplotlib & Seaborn (visualization)
 
 ## Text UML/ Pipeline
-
+```
 1. Data Understanding
    ├─ Gather example datasets (e.g., LendingClub, Kaggle credit datasets)
    ├─ Explore feature types: income, credit score, loan amount, etc.
@@ -59,9 +59,10 @@ A machine learning application that predicts the probability of loan default bas
 
 8. Deployment (Optional)
    └─ Streamlit Cloud / Dockerize for local hosting
+```
 
 ## CreditRiskClassifier 
-
+```
 ├── data/
 │   ├── raw/
 │   └── processed/
@@ -85,7 +86,7 @@ A machine learning application that predicts the probability of loan default bas
 ├── requirements.txt
 ├── README.md
 └── .gitignore
-
+```
 
 ---
 

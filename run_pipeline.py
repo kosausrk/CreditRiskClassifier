@@ -10,6 +10,10 @@ df = load_data("data/Loan_default.csv")
 train, test = split_data(df)
 preprocessor = build_preprocessor()
 
+#closing 
+joblib.dump(preprocessor, "models/preprocessor.pkl")
+
+
 X_train = preprocessor.fit_transform(train)
 X_test = preprocessor.transform(test)
 

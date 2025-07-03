@@ -1,8 +1,49 @@
 # **[IN PROGRESS] **
 
-# Credit Risk Classifier
+# Credit Risk Classifier  AI-Powered Loan Default Predictor
 
 A machine learning application that predicts the probability of loan default based on customer financial data. Designed for financial institutions like JPMorgan and Capital One to automate risk underwriting with interpretable insights.
+
+
+A practical ML application that helps banks and lenders automatically assess loan risk. It uses customer financial data (income, credit score, loan amount, etc.) to estimate the **probability of default** — like how JPMorgan or Capital One might screen applicants during underwriting.
+
+**Use Case**:  
+> "Can we tell, in seconds, whether this person is a low-risk borrower?"
+
+This tool answers that — with both predictive power and explainability (via SHAP).  
+It turns messy CSVs into clear visual decisions.
+
+---
+
+## (in Simple Terms)
+
+Think of this app like a **digital loan officer assistant**:
+
+- You type in someone's income, credit score, etc. (or upload a CSV)
+- The trained ML model predicts: _What's the chance they won't pay us back?_
+- It uses XGBoost — a model trained on real-world patterns
+- It explains the reasoning visually using SHAP (like saying: “This person’s low credit score hurt their chances”)
+
+**Analogy**:  
+It’s like TurboTax — but for risk analysis instead of taxes.
+
+---
+
+## Who This Is For
+
+- **Banks & Fintechs**: Streamline risk scoring for consumer lending
+- **Analysts**: Get transparency into why a loan is flagged as risky
+- **Students/Builders**: Learn end-to-end ML pipeline + UI + explainability
+
+---
+
+## How to Use the Streamlit Interface
+
+### ➤ Manual Mode
+1. Run the app:
+   ```bash
+   streamlit run app/streamlit.py
+
 
 ---
 
@@ -61,7 +102,8 @@ A machine learning application that predicts the probability of loan default bas
    └─ Streamlit Cloud / Dockerize for local hosting
 ```
 
-## CreditRiskClassifier 
+## CreditRiskClassifier File Structure 
+
 ```
 ├── data/
 │   ├── raw/
@@ -89,6 +131,8 @@ A machine learning application that predicts the probability of loan default bas
 ```
 
 ---
+
+
 
 ## How to Run
 

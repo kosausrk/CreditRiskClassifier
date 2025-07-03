@@ -56,7 +56,7 @@ Visual examples from the pipeline and Streamlit app. Each graphic helps explain 
 | ![Streamlit App Screenshot](images/streamlit_web.png) | A look at the real-time scoring UI, where users input data manually or upload a CSV to get loan risk predictions. |
 
 
-
+kaggle dataset: https://www.kaggle.com/datasets/nikhil1e9/loan-default?resource=download 
 
 # DOCS (in progress)
 current scores (as of 7/3/25)

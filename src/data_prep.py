@@ -16,7 +16,11 @@ CAT_COLS = [
 ]
 
 def load_data(path):
-    return pd.read_csv(path, delimiter=",", error_bad_lines=False, encoding="utf-8")
+    df = pd.read_csv(path, delimiter=",", on_bad_lines='skip', encoding="utf-8")
+    df.columns = df.columns.str.strip()  # Remove extra spaces from headers
+    print("🧪 Columns in CSV:", df.columns.tolist())  # Debug print
+    return df
+
 
 
 def split_data(df, target="Default", test_size=0.2, random_state=42):

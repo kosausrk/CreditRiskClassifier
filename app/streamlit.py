@@ -4,6 +4,8 @@ import pandas as pd
 import joblib, shap
 
 model = joblib.load("../models/model.pkl")
+
+
 explainer = shap.TreeExplainer(model)
 
 st.title("Credit Risk Classifier")

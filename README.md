@@ -27,3 +27,15 @@ A machine learning application that predicts the probability of loan default bas
 
    ```bash
    pip install -r requirements.txt
+
+
+## DEV WORKFLOW 
+
+# 1. Activate venv
+source venv/bin/activate
+
+# 2. If retraining is needed
+python run_pipeline.py
+
+# 3. Launch UI
+streamlit run app/streamlit.py

@@ -166,11 +166,11 @@ Visual examples from the pipeline and Streamlit app. Each graphic helps explain 
 
 ## DEV WORKFLOW 
 
-# 1. Activate venv
+1. Activate venv
 source venv/bin/activate
 
-# 2. If retraining is needed
+2. If retraining is needed
 python run_pipeline.py
 
-# 3. Launch UI
+3. Launch UI
 streamlit run app/streamlit.py

@@ -57,6 +57,22 @@ Visual examples from the pipeline and Streamlit app. Each graphic helps explain 
 
 
 # DOCS (in progress)
+current scores (as of 7/3/25)
+ROC AUC: 0.7591999315970401
+              precision    recall  f1-score   support
+
+           0       0.89      1.00      0.94     45139
+           1       0.63      0.06      0.11      5931
+
+    accuracy                           0.89     51070
+   macro avg       0.76      0.53      0.52     51070
+weighted avg       0.86      0.89      0.84     51070
+
+Metric	Meaning
+Accuracy	89% of total predictions were correct
+Macro Avg	Unweighted average over both classes (fairer)
+Weighted Avg	Average, weighted by class size (skewed by class 0)
+
 
 ---
 

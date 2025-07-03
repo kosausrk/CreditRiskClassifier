@@ -35,6 +35,23 @@ It’s like TurboTax — but for risk analysis instead of taxes.
 - **Analysts**: Get transparency into why a loan is flagged as risky
 - **Students/Builders**: Learn end-to-end ML pipeline + UI + explainability
 
+
+## Image Gallery – Model Insights & UI
+
+Visual examples from the pipeline and Streamlit app. Each graphic helps explain how this tool works for both technical and non-technical audiences.
+
+| 🔍 What You See | 🧠 What It Shows |
+|----------------|------------------|
+| ![Confusion Matrix](images/confusion-matrix.png) | A performance summary: how well the model predicts defaults vs non-defaults. Great for model audit snapshots. |
+| ![Precision-Recall Curve](images/precision-recall-curve.png) | Shows the tradeoff between precision and recall — especially helpful in imbalanced datasets like credit risk. |
+| ![SHAP Feature Values](images/SHAP_value.png) | A global SHAP beeswarm plot that highlights which features push the model toward predicting risk. Think of this as “what the model pays attention to”. |
+| ![Streamlit App Screenshot](images/streamlit_web.png) | A look at the real-time scoring UI, where users input data manually or upload a CSV to get loan risk predictions. |
+
+
+
+
+# DOCS (in progress)
+
 ---
 
 ## How to Use the Streamlit Interface

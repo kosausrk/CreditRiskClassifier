@@ -3,7 +3,56 @@ import streamlit as st
 import pandas as pd
 import joblib, shap
 
-model = joblib.load("../models/model.pkl")
+import os
+
+from src.data_prep import build_preprocessor #dataprep
+
+
+
+
+# Dynamically resolve model path relative to this script
+model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'models', 'model.pkl'))
+
+if not os.path.exists(model_path):
+    st.error(f" Model file not found at: {model_path}")
+    st.stop()
+
+model = joblib.load(model_path)
+
+
+
+#default 
+st.header("📁 Upload CSV to Get Predictions")
+
+uploaded_file = st.file_uploader("Upload a CSV file (same format as Loan_default.csv)", type="csv")
+
+if uploaded_file:
+    # Read uploaded data
+    input_df = pd.read_csv(uploaded_file)
+    input_df.columns = input_df.columns.str.strip()  # Clean up column names
+
+    # Drop any target column if included
+    if "Default" in input_df.columns:
+        input_df = input_df.drop(columns=["Default"])
+    
+    # Run model prediction
+    pred_probs = model.predict_proba(input_df)[:, 1]
+    input_df["Predicted_Default_Probability"] = pred_probs
+
+    # Show table with predictions
+    st.write("📊 Predictions:")
+    st.dataframe(input_df)
+
+    # Optional: Highlight high-risk loans
+    high_risk = input_df[input_df["Predicted_Default_Probability"] > 0.5]
+    if not high_risk.empty:
+        st.warning(f"🚨 {len(high_risk)} high-risk applicants (prob > 50%) detected")
+
+    # SHAP explanation
+    if st.checkbox("Show SHAP Summary Plot"):
+        shap_values = explainer.shap_values(input_df)
+        shap.summary_plot(shap_values, input_df, show=False)
+        st.pyplot(bbox_inches="tight")
 
 
 explainer = shap.TreeExplainer(model)
@@ -27,6 +76,7 @@ input_data = {
     "LoanPurpose": st.selectbox("Loan Purpose", ["Auto", "Business", "Education", "Home", "Other"]),
     "HasCoSigner": st.selectbox("Has Co-Signer", ["Yes", "No"])
 }
+
 
 
 df = pd.DataFrame([input_data])

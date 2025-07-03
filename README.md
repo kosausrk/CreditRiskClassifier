@@ -1,4 +1,4 @@
-# **production ready, v1.01**
+# **production ready, v1.1**
 
 # Credit Risk Classifier  AI-Powered Loan Default Predictor
 

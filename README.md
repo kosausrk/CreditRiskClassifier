@@ -2,10 +2,15 @@
 
 # Credit Risk Classifier  AI-Powered Loan Default Predictor
 
+This project simulates a lightweight credit risk engine similar to what fintechs or prop trading firms like **Akuna Capital** might use for real-time underwriting, risk flagging, or capital allocation decisions.
+
+
 A machine learning application that predicts the probability of loan default based on customer financial data. Designed for financial institutions like JPMorgan and Capital One to automate risk underwriting with interpretable insights.
 
 
-A practical ML application that helps banks and lenders automatically assess loan risk. It uses customer financial data (income, credit score, loan amount, etc.) to estimate the **probability of default** — like how JPMorgan or Capital One might screen applicants during underwriting.
+Additionally,  practical ML application that helps banks and lenders automatically assess loan risk. It uses customer financial data (income, credit score, loan amount, etc.) to estimate the **probability of default** — like how JPMorgan or Capital One might screen applicants during underwriting.
+
+
 
 **Use Case**:  
 > "Can we tell, in seconds, whether this person is a low-risk borrower?"

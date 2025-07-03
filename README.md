@@ -20,7 +20,7 @@ It transforms complex CSV data into clear, interpretable visual guidance.
 
 ---
 
-## 🧠 In Simple Terms
+## In Simple Terms
 
 Think of this app like a **virtual assistant for financial analysis**:
 
@@ -32,7 +32,7 @@ Think of this app like a **virtual assistant for financial analysis**:
 **Analogy**:  
 It’s like a **financial calculator with explainable reasoning** — helping analysts or students understand risk patterns, not pass judgment.
 
-> ⚠️ Note: This tool is for educational purposes and should **not** be used to make real-world lending decisions.
+**> Note: This tool is for educational purposes and should **not** be used to make real-world lending decisions.**
 ---
 
 ## Who This Is For

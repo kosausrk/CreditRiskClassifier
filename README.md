@@ -2,7 +2,7 @@
 
 last updated @ 7/3/25 
 
-# Credit Risk Classifier  AI-Powered Loan Default Predictor
+# Credit Risk Classifier 
 
 This project simulates a lightweight credit risk engine similar to what fintechs or prop trading firms like **Akuna Capital** might use for real-time underwriting, risk flagging, or capital allocation decisions.
 

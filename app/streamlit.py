@@ -90,5 +90,6 @@ if uploaded_file:
 
     if st.checkbox("Show SHAP Summary Plot"):
         shap_values = explainer.shap_values(input_transformed)
-        shap.summary_plot(shap_values, input_df, show=False)
+        shap.summary_plot(shap_values, input_df, show=False)  # ✅ Pass original dataframe for labels
+
         st.pyplot(bbox_inches='tight')

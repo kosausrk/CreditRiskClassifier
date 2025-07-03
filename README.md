@@ -8,30 +8,31 @@ This project simulates a lightweight credit risk engine similar to what fintechs
 A machine learning application that predicts the probability of loan default based on customer financial data. Designed for financial institutions like JPMorgan and Capital One to automate risk underwriting with interpretable insights.
 
 
-Additionally,  practical ML application that helps banks and lenders automatically assess loan risk. It uses customer financial data (income, credit score, loan amount, etc.) to estimate the **probability of default** — like how JPMorgan or Capital One might screen applicants during underwriting.
-
-
-
-**Use Case**:  
-> "Can we tell, in seconds, whether this person is a low-risk borrower?"
-
-This tool answers that — with both predictive power and explainability (via SHAP).  
-It turns messy CSVs into clear visual decisions.
+Additionally, this project is a practical demonstration of machine learning applied to **financial decision support**. It helps simulate how institutions might assess loan risk by analyzing borrower-related features (like income, credit score, loan amount, etc.) to estimate the **likelihood of repayment challenges** — similar to tools used in responsible lending and credit assessment.
 
 ---
 
-## (in Simple Terms)
+**Use Case**:  
+> "Can we estimate, with transparency, how various financial factors influence lending decisions?"
 
-Think of this app like a **digital loan officer assistant**:
+This tool enables that — combining predictive insights with model explainability (via SHAP).  
+It transforms complex CSV data into clear, interpretable visual guidance.
 
-- You type in someone's income, credit score, etc. (or upload a CSV)
-- The trained ML model predicts: _What's the chance they won't pay us back?_
-- It uses XGBoost — a model trained on real-world patterns
-- It explains the reasoning visually using SHAP (like saying: “This person’s low credit score hurt their chances”)
+---
+
+## 🧠 In Simple Terms
+
+Think of this app like a **virtual assistant for financial analysis**:
+
+- You input details like income, credit score, and loan amount (or upload a CSV)
+- The ML model estimates the **relative risk** based on patterns from past data
+- It uses XGBoost — a fast, interpretable machine learning model
+- It also shows **why** the model made its decision using SHAP (e.g., “Low income and high loan size contributed to higher risk”)
 
 **Analogy**:  
-It’s like TurboTax — but for risk analysis instead of taxes.
+It’s like a **financial calculator with explainable reasoning** — helping analysts or students understand risk patterns, not pass judgment.
 
+> ⚠️ Note: This tool is for educational purposes and should **not** be used to make real-world lending decisions.
 ---
 
 ## Who This Is For

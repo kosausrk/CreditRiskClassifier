@@ -2,6 +2,8 @@
 
 last updated @ 7/3/25 
 
+**Tags**: `fintech`· `machine learning` · `data science` · `XGBoost` · `SHAP` · `streamlit` · `financial modeling` · `risk analytics` · `underwriting automation` · `portfolio scoring` · `quantitative finance`
+
 # Credit Risk Classifier 
 
 This project simulates a lightweight credit risk engine similar to what fintechs or prop trading firms like **Akuna Capital** might use for real-time underwriting, risk flagging, or capital allocation decisions.

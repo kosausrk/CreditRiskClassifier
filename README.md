@@ -6,10 +6,6 @@ last updated @ 7/3/25
 
 This project simulates a lightweight credit risk engine similar to what fintechs or prop trading firms like **Akuna Capital** might use for real-time underwriting, risk flagging, or capital allocation decisions.
 
-
-A machine learning application that predicts the probability of loan default based on customer financial data. Designed for financial institutions like JPMorgan and Capital One to automate risk underwriting with interpretable insights.
-
-
 Additionally, this project is a practical demonstration of machine learning applied to **financial decision support**. 
 
 ---
@@ -26,10 +22,9 @@ It transforms complex CSV data into clear, interpretable visual guidance.
 
 Think of this app like a **virtual assistant for financial analysis**:
 
-- You input details like income, credit score, and loan amount (or upload a CSV)
 - The ML model estimates the **relative risk** based on patterns from past data
 - It uses XGBoost — a fast, interpretable machine learning model
-- It also shows **why** the model made its decision using SHAP (e.g., “Low income and high loan size contributed to higher risk”)
+- It also shows **why** the model made its decision using SHAP (e.g., “What factors contributed to higher risk”)
 
 **Analogy**:  
 It’s like a **financial calculator with explainable reasoning** — helping analysts or students understand risk patterns, not pass judgment.

@@ -10,7 +10,7 @@ This project simulates a lightweight credit risk engine similar to what fintechs
 A machine learning application that predicts the probability of loan default based on customer financial data. Designed for financial institutions like JPMorgan and Capital One to automate risk underwriting with interpretable insights.
 
 
-Additionally, this project is a practical demonstration of machine learning applied to **financial decision support**. It helps simulate how institutions might assess loan risk by analyzing borrower-related features (like income, credit score, loan amount, etc.) to estimate the **likelihood of repayment challenges** — similar to tools used in responsible lending and credit assessment.
+Additionally, this project is a practical demonstration of machine learning applied to **financial decision support**. 
 
 ---
 

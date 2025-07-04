@@ -48,7 +48,7 @@ It’s like a **financial calculator with explainable reasoning** — helping an
 
 Visual examples from the pipeline and Streamlit app. Each graphic helps explain how this tool works for both technical and non-technical audiences.
 
-| 🔍 What You See | 🧠 What It Shows |
+|  What You See |  What It Shows |
 |----------------|------------------|
 | ![Confusion Matrix](images/confusion-matrix.png) | A performance summary: how well the model predicts defaults vs non-defaults. Great for model audit snapshots. |
 | ![Precision-Recall Curve](images/precision-recall-curve.png) | Shows the tradeoff between precision and recall — especially helpful in imbalanced datasets like credit risk. |

@@ -11,9 +11,7 @@ This project simulates a lightweight credit risk engine similar to what fintechs
 Additionally, this project is a practical demonstration of machine learning applied to **financial decision support**. 
 
 ## Disclaimer 
-
 This project is intended strictly for educational and demonstrative purposes.
-While it demonstrates machine learning techniques for credit risk scoring, it must not be used for actual lending decisions or real-world deployments.
 
 AI systems — especially in finance — can unintentionally reinforce existing biases or create unequal outcomes if not designed and audited carefully.
 

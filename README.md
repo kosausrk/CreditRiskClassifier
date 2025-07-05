@@ -1,4 +1,4 @@
-# **production ready, v1.1**
+# **production ready, v1.2**
 
 last updated @ 7/3/25 
 

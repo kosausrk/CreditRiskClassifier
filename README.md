@@ -10,6 +10,8 @@ This project simulates a lightweight credit risk engine similar to what fintechs
 
 Additionally, this project is a practical demonstration of machine learning applied to **financial decision support**. 
 
+## Disclaimer 
+
 This project is intended strictly for educational and demonstrative purposes.
 While it demonstrates machine learning techniques for credit risk scoring, it must not be used for actual lending decisions or real-world deployments.
 
@@ -17,11 +19,11 @@ AI systems — especially in finance — can unintentionally reinforce existing 
 
 If you're interested in building more ethical, transparent, and fair AI systems, here are some helpful resources:
 
-artificialintelligenceact.eu – EU AI Act overview; defines high-risk systems 
+[artificialintelligenceact.eu](https://artificialintelligenceact.eu/) – EU AI Act overview; defines high-risk systems 
 
-partnershiponai.org – Industry-led initiative promoting responsible AI development and deployment
+[partnershiponai.org](https://partnershiponai.org/) – Industry-led initiative promoting responsible AI development and deployment
 
-**wikipedia.org/wiki/Weapons_of_Math_Destruction – Book outlining real-world consequences of unchecked algorithms in finance, education, and more**
+**[wikipedia.org/wiki/Weapons_of_Math_Destruction](https://en.wikipedia.org/wiki/Weapons_of_Math_Destruction) – Book outlining real-world consequences of unchecked algorithms in finance, education, and more**
 
 
 This README includes SHAP-based model explanations to promote transparency — but does not implement bias mitigation or fairness auditing. Please use responsibly. Just for learning purposes 

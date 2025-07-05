@@ -47,7 +47,7 @@ Think of this app like a **virtual assistant for financial analysis**:
 - It also shows **why** the model made its decision using SHAP (e.g., “What factors contributed to higher risk”)
 
 **Analogy**:  
-It’s like a **financial calculator with explainable reasoning** — helping analysts or students understand risk patterns, not pass judgment.
+It’s like a **financial calculator with explainable reasoning** — helping analysts or students understand risk patterns
 
 **> Note: This tool is for educational purposes and should **not** be used to make real-world lending decisions.**
 ---
